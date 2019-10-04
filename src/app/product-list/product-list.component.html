@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="bck">
+  <div class="container-fluid">
+    <div class="row my-2">
+      <div class="col-3" style="border-right: 2px solid lightgrey">
+        <div class="card shadow-lg shadow my-5">
+          <div class="card-header font-weight-bold">
+            <h3>Filter Price</h3>
+          </div>
+          <div class="card-body">
+            <div class=" custom-control custom-checkbox">
+              <input id="customCheck1" type="checkbox" class="custom-control-input">
+              <label class="custom-control-label" for="customCheck1">₹500 - ₹1,000</label>
+            </div>
+            <div class=" custom-control custom-checkbox">
+              <input id="customCheck2" type="checkbox" class="custom-control-input">
+              <label class="custom-control-label" for="customCheck2">₹1000 - ₹2,500</label>
+            </div>
+            <div class=" custom-control custom-checkbox">
+              <input id="customCheck3" type="checkbox" class="custom-control-input">
+              <label class="custom-control-label" for="customCheck3">₹2,500 - ₹5,000</label>
+            </div>
+            <div class=" custom-control custom-checkbox">
+              <input id="customCheck4" type="checkbox" class="custom-control-input">
+              <label class="custom-control-label" for="customCheck4">Over ₹5,000</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+
+        <div class="d-flex flex-wrap">
+          <div *ngFor="let i of productList" class="card-deck">
+            <div class="card mx-4 shadow-lg mb-5 bg-white rounded">
+              <div class="card-body">
+                <a><img src="{{i.image}}"></a>
+              </div>
+              <div class="card-footer text-center ">
+                <div class="helo">
+                  <h3><a class="text-dark text-decoration-none ">{{i.name}}</a></h3>
+                </div>
+                <div class="d-flex">
+                  <h4>{{i.price - (60 * price / 100)|currency:'INR':true:'1.0-1'}} </h4><small>
+                  <del>{{i.price}}</del>
+                </small>
+                </div>
+                <div>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let i of productList">
+  {{i.name}}
+</div>
