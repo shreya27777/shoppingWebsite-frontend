@@ -9,7 +9,6 @@ export class ProductService {
   constructor(private  http: HttpClient ) { }
    getProduct(category) {
     const url = 'http://localhost:8081/items/get/' + category;
-    // const url = 'http://localhost:8081/items/get';
     return this.http.get(url);
    }
 }

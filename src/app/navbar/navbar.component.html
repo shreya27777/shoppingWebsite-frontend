@@ -8,7 +8,7 @@
   </div>
   <div class="d-flex align-items-center">
     <div class="px-2 category-style">
-      <h5><a href="#" class="text-white text-decoration-none py-2 px-1 ">Info</a>
+      <h5><a routerLink="/profile" class="text-white text-decoration-none py-2 px-1 ">Info</a>
         <i class="material-icons text-white">
           supervisor_account
         </i></h5>
@@ -19,42 +19,23 @@
           shopping_cart
         </i></h5>
     </div>
-    <div class="px-2 d-flex align-items-center category-style">
-      <h5>
-        <button data-toggle="modal" (click)="showModal = true"
-                class="btn text-white py-2 "> Login
-        </button>
+
+
+    <div *ngIf="!appService.checkLogin(); else logOut" class="px-2 d-flex align-items-center category-style">
+      <h5><a routerLink="/login" class=" text-white px-1 text-decoration-none py-2">Log In</a>
         <i class="material-icons text-white">
           account_circle
         </i></h5>
     </div>
 
-
-    <!-- The Modal -->
-    <div class="modal " id="myModal" [style.display]="showModal ? 'block' : 'none'">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title text-center">Hello User!</h4>
-            <button type="button" class="close" data-dismiss="modal" (click)="showModal = false">&times;</button>
-          </div>
-          <!-- Modal body -->
-          <div class="modal-body">
-            <app-login></app-login>
-          </div>
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="showModal = false">Close</button>
-          </div>
-        </div>
+    <ng-template #logOut>
+      <div class="px-2 d-flex align-items-center category-style">
+        <h5><a (click)="logout()" class=" text-white px-1 text-decoration-none py-2">Log Out</a>
+          <i class="material-icons text-white">
+            account_circle
+          </i></h5>
       </div>
-    </div>
-
-
-    <h5>
-      <button type="button" class="btn btn-dark ">Log Out</button>
-    </h5>
+    </ng-template>
   </div>
 </nav>
 
@@ -63,7 +44,7 @@
     <h4><a routerLink="/home" class="text-white text-decoration-none">Home</a></h4>
   </div>
   <div *ngFor="let i of category" class="py-2 px-5 category-style">
-    <h4><a (click)="show(i)"  class="text-white text-decoration-none">
+    <h4><a (click)="show(i.name)"  class="text-white text-decoration-none">
       {{i.name}}</a></h4>
   </div>
 </nav>

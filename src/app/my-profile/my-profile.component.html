@@ -1,1 +1,34 @@
 <app-navbar></app-navbar>
+<div class="container jumbotron">
+  <h2 >Welcome User</h2>
+  <div class="card sm-4  shadow-lg p-3 mb-5  rounded ">
+    <form action="/action_page.php">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name"  name="name" value="hjk">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email"  name="email" value="dfgh">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd"  name="pswd" value="drfghbjn">
+      </div>
+      <div class="form-group form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember"> Remember me
+        </label>
+      </div>
+      <div class="d-flex justify-content-between">
+      <div >
+        <button type="submit" class="btn btn-danger"  (click)="Signupdata()" >Order history</button>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-danger"  (click)="Signupdata()" >update profile</button>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>
+

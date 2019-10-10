@@ -1,17 +1,91 @@
 <app-navbar></app-navbar>
-<div class="jumbotron d-flex justify-content-center ">
-  <div  id="cartProductContainer" class="alert alert-primary alert-dismissible fade show ">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <i class="material-icons">
-      check_circle_outline
-    </i>
-    Skyfitness Double Spring Black Tummy Trimmer is already present in your cart. Please make use of
-    <br>the quantity field to increase quantity.
+<div class="container-fluid">
+  <div class="row my-2">
+<div class="col-9" *ngFor="let i of demo" style="border-right: 2px solid lightgrey ">
+  <div class="container-fluid p-5 ">
+    <div class="bg-dark">
+    <div class="row bg-white alert alert-dark alert-dismissible fade show ">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="material-icons">
+        check_circle_outline
+      </i>
+        <img src="../../assets/sheintop.webp" class="img-fluid img-size" />
+
+
+      <div class="col-sm-9 p-3 border">
+        <h3 class="display-5 heading-border pb-2 font-weight-bold">{{ name }}</h3>
+        <h4 class="display-5 mt-3">
+          <span class="font-weight-bold ml-5">Price  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;:</span
+          ><span class="text-dark ml-4"> &#8377; {{ price }}</span>
+        </h4>
+        <!--Quantity-->
+        <div class="d-flex mt-3">
+          <h4 class="display-5 ">
+            <span class="font-weight-bold ml-5">Quantity  &nbsp;&nbsp;&nbsp;&nbsp;:</span>
+          </h4>
+
+          <button
+            type="button"
+            class="btn btn-success ml-4"
+            (click)="decrement()"
+          >
+            -
+          </button>
+          <div class="border p-2 pl-4 pr-4">{{ quantity }}</div>
+          <button type="button" class="btn btn-success" (click)="increment()">
+            +
+          </button>
+        </div>
+        <h4 class="display-5 mt-3">
+          <span class="font-weight-bold ml-5">Total Amount : </span
+          ><span class="text-dark ml-4"> &#8377; {{ finalprice }}</span>
+        </h4>
+      </div>
+
+    </div>
   </div>
-  <div class="card">
-    <button type="button" class="btn btn-dark ">Log Out</button>
   </div>
 </div>
-<div>
+
+<div class="col-3">
+  <div class="card shadow-lg shadow my-5">
+    <div class="card-header font-weight-bold">
+      <h3>Your Order</h3>
+    </div>
+    <div class="card-body">
+ <h4>Bag Total :</h4>
+    <h5>Bag Discount : Rs.100</h5>
+    <h4>Delivery Charges :Rs.60</h4>
+    <h4>Total :</h4>
+    </div>
+    <button
+      type="button"
+      class="btn btn-outline-danger form-control mt-2">Pay</button>
+</div>
+</div>
+  </div>
+</div>
+
+
+<!--Back and procced button-->
+<div class="container-fluid position-fixed custom-pos">
+  <div class="d-flex justify-content-center">
+    <button
+      type="button"
+      class="btn btn-danger p-2 pl-5 pr-5 rounded-circle-custom shadow"
+      (click)="goToHome()"
+    >
+      Continue Shopping
+    </button>
+    <button
+      type="button"
+      class="btn btn-success p-2 pl-5 pr-5 rounded-circle-custom-reverse shadow"
+    >
+      Procced To Payment
+    </button>
+  </div>
+</div>
+<div >
   <img src="./assets/ss1.png">
 </div>
+

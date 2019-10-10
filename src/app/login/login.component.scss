@@ -1,6 +1,13 @@
-h2{
+h2,h4{
   font-family: 'Sofia', cursive;
-  border-bottom: 5px solid #f50057;
-  border-bottom-length: 1px;
-  border-bottom-width: 6px;
 }
+.heading{
+  border-bottom: 3px solid #ca3e47;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+#item img {
+  width: 100px;
+  height: 100px;
+}
+

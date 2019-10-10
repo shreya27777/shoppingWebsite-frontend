@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ParamMap, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {ProductService} from '../product.service';
+import {AppService} from '../app.service';
+import {AuthenticationService} from '../authentication.service';
+import {HttpClient} from '@angular/common/http';
+import {HttpService} from '../http.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +12,6 @@ import {ProductService} from '../product.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  showModal = false;
   public category = [
     {link: '/product-list', name: 'Electronics'},
     {link: '/product-list', name: 'Sports'},
@@ -17,21 +20,26 @@ export class NavbarComponent implements OnInit {
     {link: '/product-list', name: 'Beauty'}
   ];
 
-  constructor(private router: Router, private service: ProductService) {
+  constructor(private router: Router, private service: ProductService, private appService: AppService,
+              private authService: AuthenticationService, private http: HttpClient, private httpService: HttpService) {
   }
 
   ngOnInit() {
   }
 
   show(category) {
-    this.router.navigate(['/product-list', category.name.toLowerCase()]);
-    console.log(category);
-    this.service.getProduct(this.category).subscribe((data) => {
-      productList = data;
-    }, (err) => {
-      alert(err.message);
+    this.category = category.toLowerCase();
+    this.httpService.raiseCategory(category.toLowerCase());
+    this.router.navigate(['/product-list', category.toLowerCase()]);
+  }
+
+  logout() {
+    this.authService.signOut().subscribe(res => {
+      sessionStorage.removeItem('token');
+      this.appService.isLoggedIn(false);
+      sessionStorage.removeItem('auth');
+      alert('Logout Successful');
+      this.router.navigate(['/home']);
     });
   }
 }
-
-export let productList: object = [];

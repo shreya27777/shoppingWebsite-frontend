@@ -8,6 +8,7 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {UserCartComponent} from './user-cart/user-cart.component';
 import {ProductListComponent} from './product-list/product-list.component';
+import {MyProfileComponent} from './my-profile/my-profile.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'product-list/:category', component: ProductListComponent},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'user-cart', component: UserCartComponent},
+  {path: 'profile', component: MyProfileComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -30,4 +32,4 @@ export class AppRoutingModule {
 }
 
 export const RoutingComponents = [HomePageComponent, LoginComponent, SignupComponent, ProductDetailsComponent, AboutUsComponent,
-  PageNotFoundComponent, UserCartComponent, ProductListComponent];
+  PageNotFoundComponent, UserCartComponent, ProductListComponent, MyProfileComponent ];
