@@ -1,12 +1,16 @@
-
-<div class="container-fluid mt-5">
-
-  <h4 class="display-3 text-center heading">Shoppers Bazaar</h4>
-
+<div class="container-fluid">
+  <div class="d-flex justify-content-center align-items-center heading pt-5" routerLink="/home">
+    <div id="item" class="my-cursor">
+      <img src="./assets/logo.jpg" alt="Shoppers Bazaar">
+    </div>
+    <div>
+      <h2 class="display-3 text-center m-0 my-cursor">Shoppers Bazaar</h2>
+    </div>
+  </div>
   <div class="d-flex justify-content-center mt-5">
     <div class="p-3 border pl-5 pr-5">
       <form class="text-center">
-        <h4 class="display-4 text-center">Signup</h4>
+        <h3 class=" text-center mb-4">Sign-up here</h3>
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-prepend">
@@ -19,7 +23,7 @@
         </div>
 
         <div class="form-group">
-          <div class="input-group">
+          <div class="input-group pt-2">
             <div class="input-group-prepend">
               <span class="input-group-text"
               > <i class="material-icons">email</i></span>
@@ -47,5 +51,9 @@
     </div>
   </div>
 
+  <div class="text-center container mt-4 text-decoration-none" >
+    Already have an account?
+    <a  routerLink="/login">Login</a > here!
+  </div>
 </div>
 

@@ -1,13 +1,23 @@
-h2,h4{
+h2,h3{
   font-family: 'Sofia', cursive;
 }
 .heading{
+  margin: 0 20rem;
   border-bottom: 3px solid #ca3e47;
-  margin-left: 300px;
-  margin-right: 300px;
 }
 #item img {
   width: 100px;
   height: 100px;
 }
 
+.my-cursor{
+  cursor: pointer;
+}
+
+.form-control{
+  width: 17rem;
+}
+
+.btn{
+  width: 20rem;
+}
