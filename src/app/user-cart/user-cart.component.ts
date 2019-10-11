@@ -53,6 +53,15 @@ export class UserCartComponent implements OnInit {
     });
   }
 
+  checkOut() {
+    this.httpService.checkOut().subscribe((data) => {
+      this.cartItem = data;
+      this.httpService.total().subscribe((total) => {
+        this.totalPrice = total;
+      });
+    });
+  }
+
   removeFromCart(id) {
     this.httpService.remove(id).subscribe((data) => {
       this.cartItem = data;

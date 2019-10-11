@@ -1,34 +1,53 @@
 <app-navbar></app-navbar>
-<div class="container jumbotron">
-  <h2 >Welcome User</h2>
-  <div class="card sm-4  shadow-lg p-3 mb-5  rounded ">
-    <form action="/action_page.php">
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name"  name="name" value="hjk">
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email"  name="email" value="dfgh">
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd"  name="pswd" value="drfghbjn">
-      </div>
-      <div class="form-group form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" name="remember"> Remember me
-        </label>
-      </div>
-      <div class="d-flex justify-content-between">
-      <div >
-        <button type="submit" class="btn btn-danger"  (click)="Signupdata()" >Order history</button>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-danger"  (click)="Signupdata()" >update profile</button>
-      </div>
-      </div>
-    </form>
+<div class="container-fluid">
+  <div class="d-flex justify-content-center align-items-center heading pt-5" routerLink="/home">
   </div>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="p-3 border pl-5 pr-5">
+      <form class="text-center">
+        <h3 class=" text-center mb-4">Profile Details</h3>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+              > <i class="material-icons">person</i></span>
+            </div>
+            <input type="text" class="form-control " placeholder="Username" [(ngModel)]="username"
+                   [ngModelOptions]="{standalone: true}"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group pt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+              > <i class="material-icons">email</i></span>
+            </div>
+            <input type="text" class="form-control " placeholder="email" [(ngModel)]="email"
+                   [ngModelOptions]="{standalone: true}"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group pt-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="material-icons">vpn_key</i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Password" [(ngModel)]="password"
+                   [ngModelOptions]="{standalone: true}"/>
+          </div>
+        </div>
+
+
+        <button
+          type="button"
+          class="btn btn-danger form-control mt-2" (click)="Signupdata()">Signup</button>
+        <button
+          type="button"
+          class="btn btn-danger form-control mt-2" (click)="Signupdata()">Signup</button>
+      </form>
+    </div>
+  </div>
+
 </div>
 

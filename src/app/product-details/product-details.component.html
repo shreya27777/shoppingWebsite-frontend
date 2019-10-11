@@ -1,31 +1,49 @@
 <app-navbar></app-navbar>
 <div class="row d-flex justify-content-center my-5 align-items-center">
-  <div class="col-6">
+  <div class="col-9">
     <div class="card shadow-lg">
       <div class="card-body d-flex justify-content-around">
         <div class="mr-5">
-          <img src=".\assets\shoes.jpg">
+          <img src="{{item.image}}" alt="{{item.name}}">
           <div class="d-flex justify-content-around pt-5">
+            <div>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
           <button type="button" class="btn btn-danger ">BUY NOW</button>
-          <button type="button" class="btn btn-dark " routerLink="/user-cart">ADD TO CART</button>
+          <button type="button" class="btn btn-dark " (click)="addToCart(item.productId)">ADD TO CART</button>
           </div>
         </div>
         <div class="d-flex flex-column">
-          <div>
-            <img src=".\assets\adidas.jpg">
-          </div>
 
-          <div>
-            adidas NEO Men s Cloudfoam Super Flex Running Shoe Collegiate Navy/White/Blue 10 D(M) US
+          <div><b>
+            {{item.name}}</b>
           </div>
           <div>
-            <ul>
-              <li>Sole: Rubber</li>
-              <li>For men</li>
-              <li>Colour: Navy/White/Blue</li>
-              <li>Cloudfoam Super Flex Running Shoe</li>
-            </ul>
+            {{item.details}}
+          </div>
 
+          <div >
+            <div class="font-weight-bolder">
+              Item Details
+            </div>
+            <div *ngFor="let i of split(item.description)">
+              <div>{{i}}</div>
+            </div>
+            <div class="mt-5">
+            <div class="font-weight-bolder">
+             Delivery Options:
+            </div>
+            <div>Tax: Applicable tax on the basis of exact location & discount will be charged at the time of checkout
+              100% Original Products
+              Free Delivery on order above Rs. 1199
+              Cash on delivery might be available
+              Easy 30 days returns and exchanges
+              Try & Buy might be available</div>
+            </div>
           </div>
         </div>
       </div>

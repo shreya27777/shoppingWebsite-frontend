@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
   <div class="row my-2">
-    <div class="col-9" *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
+    <div id="cartsize" class="col-9 " *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
       <div class="container-fluid p-5 ">
         <div class="bg-dark">
           <div class="row bg-white alert alert-dark alert-dismissible fade show ">
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-3 sticky-top">
+    <div class="col-3 ">
       <div class="card shadow-lg shadow my-5">
         <div class="card-header font-weight-bold">
           <h3>Your Order</h3>
@@ -67,11 +67,8 @@
     >
       Continue Shopping
     </button>
-    <button
-      type="button"
-      class="btn btn-success p-2 pl-5 pr-5 rounded-circle-custom-reverse shadow"
-    >
-      Procced To Payment
+    <button type="button" class="btn btn-success p-2 pl-5 pr-5 rounded-circle-custom-reverse shadow" (click)="checkOut()">
+      Proceed To Payment
     </button>
   </div>
 </div>

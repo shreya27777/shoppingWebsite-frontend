@@ -1,6 +1,16 @@
-h2{
+h2,h3{
   font-family: 'Sofia', cursive;
-  border-bottom: 5px solid #f50057;
-  border-bottom-length: 1px;
-  border-bottom-width: 6px;
 }
+
+.my-cursor{
+  cursor: pointer;
+}
+
+.form-control{
+  width: 17rem;
+}
+
+.btn{
+  width: 10rem;
+}
+

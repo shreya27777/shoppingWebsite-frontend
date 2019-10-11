@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClientJsonpModule} from '@angular/common/http';
 import {HttpService} from '../http.service';
+import {AppService} from '../app.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -13,8 +15,9 @@ export class ProductListComponent implements OnInit {
   private category;
   // tslint:disable-next-line:ban-types
   private products: Object = [];
+  public id;
 
-  constructor(private service: HttpService) {
+  constructor(private service: HttpService, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,4 +38,11 @@ export class ProductListComponent implements OnInit {
         this.products = data;
       });
   }
+
+  getDetails(productId) {
+    this.router.navigate([]).then((result) => {
+      window.open('http://localhost:4200/product-details/' + productId, '_blank');
+    });
+  }
+
 }
