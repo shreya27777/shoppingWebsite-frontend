@@ -2,10 +2,6 @@
   width: 150px;
   height: 230px;
 }
-
-.helo:hover {
-  background: #dc3545;
-}
 h3{
   font-family: 'Sofia', cursive;
 }
@@ -15,4 +11,26 @@ h3{
 
 .text-width{
   width: 186px;
+}
+h2,h5,h4 {
+  font-family: 'Sofia', cursive;
+  font-weight: normal;
+}
+.my-cursor{
+  cursor: pointer;
+}
+
+.card{
+  transition: box-shadow 0.2s;
+}
+
+.card:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+}
+.category-style:hover {
+  border: 1px dotted lightgrey;
+}
+.helo{
+
+  border-bottom: 3px solid #ca3e47;
 }

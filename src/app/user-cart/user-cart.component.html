@@ -1,35 +1,39 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
   <div class="row my-2">
-    <div id="cartsize" class="col-9 " *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
-      <div class="container-fluid p-5 ">
-        <div class="bg-dark">
-          <div class="row bg-white alert alert-dark alert-dismissible fade show ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <img src="{{i.items.image}}" class="img-fluid img-size"/>
-            <div class="col-sm-9 p-3 border">
-              <h3 class="display-5 heading-border pb-2 font-weight-bold">{{ i.items.name }}</h3>
-              <h4 class="display-5 mt-3">
-                <span class="font-weight-bold ml-5">Price  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;:</span>
-                <span class="text-dark ml-4"> &#8377; {{i.items.price }}</span>
-              </h4>
-              <div class="d-flex mt-3">
-                <h4 class="display-5 ">
-                  <span class="font-weight-bold ml-5">Quantity  &nbsp;&nbsp;&nbsp;&nbsp;:</span>
+    <div  class="col-9 ">
+      <div id="cartsize"*ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
+        <div id = "cart" class="container-fluid p-5">
+          <div class="bg-dark">
+            <div class="row bg-white alert alert-dark alert-dismissible fade show ">
+              <button type="button" (click)="removeFromCart(i.items.productId)" class="close" data-dismiss="alert">&times;</button>
+              <img src="{{i.items.image}}" class="img-fluid img-size"/>
+              <div class="col-sm-9 p-3 border">
+                <h3 class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center">{{ i.items.name }}</h3>
+                <h4 class="display-5 mt-3 d-flex justify-content-around">
+                  <span class="h5 ">Price  :</span>
+                  <span class="text-dark "> &#8377; {{i.items.price }}</span>
                 </h4>
-                <button type="button" class="btn btn-success ml-4" (click)="decrement(i.items.productId)"
-                        [disabled]="i.quantity==1">-
-                </button>
-                <div class="border p-2 pl-4 pr-4">{{i.quantity }}</div>
-                <button type="button" class="btn btn-success" (click)="increment(i.items.productId)">
-                  +
-                </button>
+                <div class="d-flex mt-3">
+                  <h4 class="display-5 ">
+                    <span class="h5 ml-5">Quantity  &nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  </h4>
+                  <button type="button" class="btn btn-success ml-4" (click)="decrement(i.items.productId)"
+                          [disabled]="i.quantity==1">-
+                  </button>
+                  <div class="border p-2 pl-4 pr-4">{{i.quantity }}</div>
+                  <button type="button" class="btn btn-success" (click)="increment(i.items.productId)">
+                    +
+                  </button>
+                </div>
+                <h4 class="display-5 mt-3">
+                  <span class="h5 ml-5">Total Amount : </span>
+                  <span class="text-dark ml-4"> &#8377; {{i.quantity * i.items.price}}</span>
+                </h4>
               </div>
-              <h4 class="display-5 mt-3">
-                <span class="font-weight-bold ml-5">Total Amount : </span>
-                <span class="text-dark ml-4"> &#8377; {{i.quantity * i.items.price}}</span>
-              </h4>
-              <button class="btn btn-danger" (click)="removeFromCart(i.items.productId)">Remove From Cart</button>
+<!--              <div  class="btn-">-->
+              <button class="btn btn-danger ml-5 d-flex justify-content-center" (click)="removeFromCart(i.items.productId)">Remove From Cart</button>
+<!--              </div>-->
             </div>
           </div>
         </div>
@@ -37,41 +41,25 @@
     </div>
 
     <div class="col-3 ">
-      <div class="card shadow-lg shadow my-5">
-        <div class="card-header font-weight-bold">
+      <div class="card my-5">
+        <div class="d-flex justify-content-center card-header font-weight-bold">
           <h3>Your Order</h3>
         </div>
         <div class="card-body">
-          <h4>Bag Total :</h4>
-          <h5>Bag Discount : Rs.100</h5>
-          <h4>Delivery Charges :Rs.60</h4>
-          <h4>Total :{{totalPrice }}</h4>
+          <div class="d-flex justify-content-between"><h5>Total Tax:</h5><h5> Rs.80</h5></div>
+          <div class="d-flex justify-content-between"><h5>Sale Discount :</h5><h5> Rs.100</h5></div>
+            <div class="d-flex justify-content-between"><h5>Delivery Charges :</h5><h5>Rs.60</h5></div>
+              <div class="d-flex justify-content-between"><h5>Total :</h5><h5>{{totalPrice +40}}</h5></div>
         </div>
         <button
           type="button"
-          class="btn btn-outline-danger form-control mt-2">Pay
+          class="btn btn-danger form-control mt-2" (click)="checkOut()">Pay
         </button>
       </div>
     </div>
   </div>
 </div>
-
-
-<!--Back and procced button-->
-<div class="container-fluid position-fixed custom-pos">
-  <div class="d-flex justify-content-center">
-    <button
-      type="button"
-      class="btn btn-danger p-2 pl-5 pr-5 rounded-circle-custom shadow"
-      (click)="goToHome()"
-    >
-      Continue Shopping
-    </button>
-    <button type="button" class="btn btn-success p-2 pl-5 pr-5 rounded-circle-custom-reverse shadow" (click)="checkOut()">
-      Proceed To Payment
-    </button>
-  </div>
-</div>
+<b><hr></b>
 <div>
   <img src="./assets/ss1.png">
 </div>

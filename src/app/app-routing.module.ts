@@ -10,6 +10,8 @@ import {UserCartComponent} from './user-cart/user-cart.component';
 import {ProductListComponent} from './product-list/product-list.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
 import {OrdersComponent} from './orders/orders.component';
+import {AddProductComponent} from './add-product/add-product.component';
+import {EditProductComponent} from './edit-product/edit-product.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'user-cart', component: UserCartComponent},
   {path: 'profile', component: MyProfileComponent},
+  {path: 'add-product', component: AddProductComponent},
+  {path: 'edit-product/:product-id', component: EditProductComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -34,4 +38,5 @@ export class AppRoutingModule {
 }
 
 export const RoutingComponents = [HomePageComponent, LoginComponent, SignupComponent, ProductDetailsComponent, AboutUsComponent,
-  PageNotFoundComponent, UserCartComponent, ProductListComponent, MyProfileComponent , OrdersComponent];
+  PageNotFoundComponent, UserCartComponent, ProductListComponent, MyProfileComponent , OrdersComponent , AddProductComponent,
+  EditProductComponent];

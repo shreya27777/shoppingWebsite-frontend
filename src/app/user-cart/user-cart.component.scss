@@ -1,26 +1,14 @@
 .category-style:hover {
   border: 1px dotted lightgrey;
 }
-#cartProductContainer{
-  background: #19bc9c;
-  padding: 15px;
-  color: white;
-  border-radius: 3px 3px 0 0;
-  position: relative;
-  width: 75%;
-  height: auto;
-  font-size: large;
+
+h3{
+  font-family: 'Sofia', cursive;
+
 }
-//h3,h4{
-//  font-family: 'Sofia', cursive;
-//
-//}
 .img-size{
-  height: 230px;
+  height: 180px;
   width: 190px;
-}
-.bg1{
-  background: #19bc9c;
 }
 
 .heading-border{
@@ -30,10 +18,14 @@
   top: 40%;
   left: 35%;
 }
-.custom-pos{
-  bottom: 140px;
-  z-index: 2;
+
+//#cart{
+//  width: 900px;
+//}
+.card{
+  transition: box-shadow 0.2s;
 }
-#cartsize{
-  width: 30px;
+
+.card:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.5);
 }

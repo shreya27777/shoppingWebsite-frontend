@@ -1,53 +1,68 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-  <div class="d-flex justify-content-center align-items-center heading pt-5" routerLink="/home">
-  </div>
-  <div class="d-flex justify-content-center mt-5">
-    <div class="p-3 border pl-5 pr-5">
-      <form class="text-center">
-        <h3 class=" text-center mb-4">Profile Details</h3>
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend">
+
+  <div class="container-fluid">
+    <div class="row my-2">
+      <div class="col-3" style="border-right: 2px solid lightgrey">
+        <div class="card">
+
+          <table class="table table-hover">
+            <thead>
+            Select :
+            </thead>
+            <tbody>
+            <tr>
+              <td (click)="edit()">Edit Profile</td>
+            </tr>
+            <tr>
+              <td routerLink="/orders">My Orders</td>
+            </tr>
+            <tr>
+              <td routerLink="/user-cart">Cart Details</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="d-flex justify-content-center mt-5">
+          <div class="p-3 border pl-5 pr-5">
+            <form class="text-center">
+              <h3 class=" text-center mb-4">Profile Details</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
               <span class="input-group-text"
               > <i class="material-icons">person</i></span>
-            </div>
-            <input type="text" class="form-control " placeholder="Username" [(ngModel)]="username"
-                   [ngModelOptions]="{standalone: true}"/>
-          </div>
-        </div>
+                  </div>
+                  <input type="text" class="form-control " name="name" [(ngModel)]="name" [value]="profile.name" [disabled]="!editable">
+                </div>
+              </div>
 
-        <div class="form-group">
-          <div class="input-group pt-2">
-            <div class="input-group-prepend">
+              <div class="form-group">
+                <div class="input-group pt-2">
+                  <div class="input-group-prepend">
               <span class="input-group-text"
               > <i class="material-icons">email</i></span>
-            </div>
-            <input type="text" class="form-control " placeholder="email" [(ngModel)]="email"
-                   [ngModelOptions]="{standalone: true}"/>
+                  </div>
+                  <input type="text" class="form-control " name="email" [(ngModel)]="email" [value]="profile.email" [disabled]="!editable"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group pt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="material-icons">vpn_key</i></span>
+                  </div>
+                  <input type="password" class="form-control" name="password" [(ngModel)]="password" [value]="profile.password" [disabled]="!editable"/>
+                </div>
+              </div>
+            </form>
+            <button *ngIf="editable" (click)="update()" class="btn btn-primary">Save</button>
           </div>
         </div>
+      </div>
 
-        <div class="form-group">
-          <div class="input-group pt-2">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="material-icons">vpn_key</i></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Password" [(ngModel)]="password"
-                   [ngModelOptions]="{standalone: true}"/>
-          </div>
-        </div>
-
-
-        <button
-          type="button"
-          class="btn btn-danger form-control mt-2" (click)="Signupdata()">Signup</button>
-        <button
-          type="button"
-          class="btn btn-danger form-control mt-2" (click)="Signupdata()">Signup</button>
-      </form>
     </div>
   </div>
-
 </div>
-

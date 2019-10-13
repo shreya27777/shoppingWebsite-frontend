@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../authentication.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {HttpService} from '../http.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,22 +10,34 @@ import {Router} from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  username;
+  name;
   password;
   email;
 
-  constructor(private  http: HttpClient, private router: Router) {
+  private passwordEmpty: boolean;
+  private usernameEmpty: boolean;
+  private emailEmpty: boolean;
+
+  constructor(private  authService: AuthenticationService, private router: Router) {
   }
 
   ngOnInit() {
   }
 
   Signupdata() {
-    const url = 'http://localhost:8081/users/signup';
-    return this.http.post(url, {
-      email: this.username,
+    if (this.password == null) {
+      this.passwordEmpty = true;
+    }
+    if (this.name == null) {
+      this.usernameEmpty = true;
+    }
+    if (this.email == null) {
+      this.emailEmpty = true;
+    }
+    this.authService.signUp({
+      name: this.name,
       password: this.password,
-      name: this.username
+      email: this.email
     }).subscribe(data => {
       this.router.navigate(['/login']);
     });

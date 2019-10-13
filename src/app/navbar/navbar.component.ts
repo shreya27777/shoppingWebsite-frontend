@@ -13,19 +13,21 @@ import {HttpService} from '../http.service';
 })
 export class NavbarComponent implements OnInit {
   public category = [
-    {link: '/product-list', name: 'Electronics'},
-    {link: '/product-list', name: 'Sports'},
+    {link: '/product-list', name: 'Decor'},
     {link: '/product-list', name: 'Clothing'},
+    {link: '/product-list', name: 'Electronics'},
     {link: '/product-list', name: 'Footwear'},
     {link: '/product-list', name: 'Beauty'}
   ];
-
+  private isAdmin;
   constructor(private router: Router, private service: ProductService, private appService: AppService,
               private authService: AuthenticationService, private http: HttpClient, private httpService: HttpService) {
   }
 
   ngOnInit() {
+
   }
+
 
   show(category) {
     this.category = category.toLowerCase();
@@ -35,9 +37,10 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.signOut().subscribe(res => {
-      sessionStorage.removeItem('token');
+      localStorage.removeItem('token');
+      localStorage.removeItem('admin');
       this.appService.isLoggedIn(false);
-      sessionStorage.removeItem('auth');
+      localStorage.removeItem('auth');
       alert('Logout Successful');
       this.router.navigate(['/home']);
     });

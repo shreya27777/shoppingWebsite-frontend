@@ -26,8 +26,31 @@ h2 {
   font-size: 48px;
 }
 
+h2,h5,h4,h2{
+  font-family: 'Sofia', cursive;
+  font-weight: normal;
+}
+.my-cursor{
+  cursor: pointer;
+}
+.card-body img {
+  width: 150px;
+  height: 190px;
+}
 
-#demo{
-  border: 5px solid wheat;
+.text-width{
+  width: 186px;
+}
+.card{
+  transition: box-shadow 0.2s;
+}
+
+.card:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+}
+
+.helo{
+
+  border-bottom: 3px solid #ca3e47;
 }
 

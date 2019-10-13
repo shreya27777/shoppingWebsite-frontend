@@ -31,10 +31,6 @@ export class UserCartComponent implements OnInit {
 
   }
 
-  goToHome() {
-    location.href = 'home';
-  }
-
   decrement(id) {
     this.httpService.decreaseQuantity(id).subscribe((data) => {
       this.cartItem = data;
@@ -59,10 +55,12 @@ export class UserCartComponent implements OnInit {
       this.httpService.total().subscribe((total) => {
         this.totalPrice = total;
       });
+      this.router.navigate(['/orders']);
     });
   }
 
   removeFromCart(id) {
+    alert('product removed from cart');
     this.httpService.remove(id).subscribe((data) => {
       this.cartItem = data;
       this.httpService.total().subscribe((total) => {

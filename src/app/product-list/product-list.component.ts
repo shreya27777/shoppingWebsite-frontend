@@ -16,11 +16,18 @@ export class ProductListComponent implements OnInit {
   // tslint:disable-next-line:ban-types
   private products: Object = [];
   public id;
-
+  public categories = [
+    {link: '/product-list', name: 'Decor'},
+    {link: '/product-list', name: 'Clothing'},
+    {link: '/product-list', name: 'Electronics'},
+    {link: '/product-list', name: 'Footwear'},
+    {link: '/product-list', name: 'Beauty'}
+  ];
   constructor(private service: HttpService, private router: Router) {
   }
 
   ngOnInit() {
+
     this.service.eventEmitter.subscribe((category: string) => {
       this.category = category;
       this.service.getAllItems(category, this.price1, this.price2).subscribe(
@@ -29,7 +36,11 @@ export class ProductListComponent implements OnInit {
         });
     });
   }
-
+  show(category) {
+    this.category = category.toLowerCase();
+    this.service.raiseCategory(category.toLowerCase());
+    this.router.navigate(['/product-list', category.toLowerCase()]);
+  }
   priceFilter(p, p2) {
     this.price1 = p;
     this.price2 = p2;

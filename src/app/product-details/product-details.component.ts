@@ -12,7 +12,6 @@ import {split} from 'ts-node';
 export class ProductDetailsComponent implements OnInit {
   public id;
   private item;
-
   constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService, private appService: AppService,
               private router: Router) {
   }
@@ -29,8 +28,9 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(id) {
     if (this.appService.checkLogin()) {
+      alert('product added to cart');
       this.httpService.add(id).subscribe((data) => {
-        this.router.navigate(['/lcart']);
+        this.router.navigate(['/user-cart']);
       });
     } else {
       this.router.navigate(['/login']);
@@ -39,5 +39,15 @@ export class ProductDetailsComponent implements OnInit {
 
   split(details) {
     return details.split('\\n');
+  }
+
+  deleteProduct(productId) {
+    this.httpService.deleteProduct(this.id).subscribe((data) => {
+      this.router.navigate(['/home']);
+    });
+  }
+
+  editProduct(id) {
+    this.router.navigate(['/edit-product', id]);
   }
 }

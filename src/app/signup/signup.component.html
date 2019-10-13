@@ -17,10 +17,14 @@
               <span class="input-group-text"
               > <i class="material-icons">person</i></span>
             </div>
-            <input type="text" class="form-control " placeholder="Username" [(ngModel)]="username"
+            <input type="text" class="form-control " placeholder="Username" [(ngModel)]="name"
                    [ngModelOptions]="{standalone: true}"/>
           </div>
         </div>
+        <div *ngIf="usernameEmpty">
+          <h5 class="text-danger">username is required</h5>
+        </div>
+
 
         <div class="form-group">
           <div class="input-group pt-2">
@@ -32,17 +36,22 @@
                    [ngModelOptions]="{standalone: true}"/>
           </div>
         </div>
+        <div *ngIf="emailEmpty">
+          <h5 class="text-danger">email is required</h5>
+        </div>
 
         <div class="form-group">
           <div class="input-group pt-2">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="material-icons">vpn_key</i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Password" [(ngModel)]="password"
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password"
                    [ngModelOptions]="{standalone: true}"/>
           </div>
         </div>
-
+        <div *ngIf="passwordEmpty">
+          <h5 class="text-danger">password is required</h5>
+        </div>
 
         <button
           type="button"

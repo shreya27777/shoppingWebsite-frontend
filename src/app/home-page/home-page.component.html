@@ -1,7 +1,17 @@
 <app-navbar></app-navbar>
-
+<nav class="navbar navbar-expand-lg bg-white justify-content-center navbar-dark p-0">
+  <div class="py-2 px-5 category-style">
+    <h4><a routerLink="/home" class="text-black-50 text-decoration-none">Home</a></h4>
+  </div>
+  <div *ngFor="let i of category" class="py-2 px-5 category-style my-cursor">
+    <div>
+      <h4><a (click)="show(i.name)"  class="text-black text-decoration-none">
+        {{i.name}}</a></h4>
+    </div>
+  </div>
+</nav>
 <!--<div class="border-danger">-->
-  <div id="demo" class="carousel slide" data-ride="carousel">
+  <div class="carousel slide" data-ride="carousel">
     <ul class="carousel-indicators">
       <li data-target="#demo" data-slide-to="0" class="active"></li>
       <li data-target="#demo" data-slide-to="1"></li>
@@ -30,178 +40,109 @@
       <span class="carousel-control-next-icon"></span>
     </a>
   </div>
+<h2><div class=" d-flex justify-content-center mt-5 mb-3"> Best Of Footwear:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of footwearPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
 
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
 
-<!--</div>-->
-
-<!--Carousel Wrapper-->
-<div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-  <!--Controls-->
-  <div class="mx-5 text-danger controls-top d-flex  justify-content-between">
-    <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="prev"><i class="material-icons">
-      arrow_back_ios
-    </i></a>
-    <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="next"><i class="material-icons">
-      arrow_forward_ios
-    </i></a>
+      </div>
+    </div>
   </div>
-  <!--/.Controls-->
-
-  <!--Indicators-->
-  <ul class="carousel-indicators ">
-    <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
-    <li data-target="#carousel-with-lb" data-slide-to="1" class="secondary-color"></li>
-    <li data-target="#carousel-with-lb" data-slide-to="2" class="secondary-color"></li>
-    <li data-target="#carousel-with-lb" data-slide-to="3" class="secondary-color"></li>
-  </ul>
-  <!--/.Indicators-->
-
-  <!--Slides and lightbox-->
-
-  <div class="carousel-inner mdb-lightbox" role="listbox">
-    <div id="mdb-lightbox-ui"></div>
-    <!--First slide-->
-    <div id="item" class=" carousel-item active text-center ">
-      <figure class="col-md-3 d-md-inline-block ">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(10).jpg"
-           data-size="1600x1067">
-          <img src='./assets/assets.jpg'>
-        </a>
-
-      </figure>
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(12).jpg"
-           data-size="1600x1067">
-          <img src='./assets/asset1.jpg'>
-        </a>
-
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg"
-           data-size="1600x1067">
-          <img src='./assets/bag.webp'>
-        </a>
-
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg"
-           data-size="1600x1067">
-          <img src='./assets/kylie.webp'>
-        </a>
-
-      </figure>
-
-    </div>
-    <!--/.First slide-->
-
-    <!--Second slide-->
-    <div id="item3"class="carousel-item text-center">
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg"
-           data-size="1600x1067">
-          <img src='./assets/laptop.jpeg'>
-        </a>
-
-      </figure>
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg"
-           data-size="1600x1067">
-          <img src='./assets/shirt.webp'>
-        </a>
-      </figure>
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg"
-           data-size="1600x1067">
-          <img src='./assets/shoes.jpg'>
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg"
-           data-size="1600x1067">
-          <img src='./assets/top.jpg'>
-        </a>
-
-      </figure>
-
-    </div>
-    <!--/.Second slide-->
-
-    <!--Third slide-->
-    <div id="item2" class="carousel-item text-center">
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-           data-size="1600x1067">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-               class="img-fluid">
-        </a>
-      </figure>
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-           data-size="1600x1067">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-               class="img-fluid">
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-           data-size="1600x1067">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-               class="img-fluid">
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg"
-           data-size="1600x1067">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg"
-               class="img-fluid">
-        </a>
-      </figure>
-
-
-    </div>
-    <div id="item1" class="carousel-item text-center">
-
-
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
-           data-size="1600x1067">
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
-               class="img-fluid">
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(56).jpg"
-           data-size="1600x1067">
-          <img src='./assets/Lights4.jpg'>
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
-           data-size="1600x1067">
-          <img src='./assets/laptop.jpeg'>
-        </a>
-      </figure>
-      <figure class="col-md-3 d-md-inline-block">
-        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg"
-           data-size="1600x1067">
-          <img src='./assets/assets.jpg'>
-        </a>
-      </figure>
-    </div>
-    <!--/.Third slide-->
-
-  </div>
-  <!--/.Slides-->
-
 </div>
-<!--/.Carousel Wrapper-->
+
+<h2><div class=" d-flex justify-content-center mt-4 mb-3"> Best Of Clothing:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of clothingPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><div class=" d-flex justify-content-center mt-4 mb-3"> Best Of Home Decor:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of decorPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><div class=" d-flex justify-content-center mb-4 mt-3 " > Best Of Beauty:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of beautyPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 <img src="./assets/bg5.webp" class="w-100 mt-2">
 <app-about-us></app-about-us>
 

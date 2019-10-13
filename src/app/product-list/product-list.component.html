@@ -1,41 +1,55 @@
 <app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg bg-danger justify-content-center navbar-dark p-0 mb-5">
+  <div class="py-2 px-5 category-style">
+    <h4><a routerLink="/home" class="text-white text-decoration-none">Home</a></h4>
+  </div>
+  <div *ngFor="let i of categories" class="py-2 px-5 category-style my-cursor">
+    <div>
+      <h4><a (click)="show(i.name)"  class="text-white text-decoration-none">
+        {{i.name}}</a></h4>
+    </div>
+  </div>
+</nav>
+
+
+
 <div class="bck">
   <div class="container-fluid">
     <div class="row my-2">
       <div class="col-2" style="border-right: 2px solid lightgrey">
-        <div class="card shadow-lg shadow my-5">
+        <div class="card">
           <div class="card-header font-weight-bold">
             <h3>Filter Price</h3>
           </div>
           <div class="card-body">
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="customRadio" name="example1"
-                     (click)="priceFilter(500,1000)">
-              <label class="custom-control-label" for="customRadio">&nbsp;&nbsp;₹500 - ₹1,000</label>
+                     (click)="priceFilter(0,1000)">
+              <label class="custom-control-label" for="customRadio">&nbsp;&nbsp;₹0 - ₹1,000</label>
             </div>
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="customRadio1" name="example1"
-                     (click)="priceFilter(1000,1500)">
-              <label class="custom-control-label" for="customRadio1">&nbsp;&nbsp;₹1000 - ₹1,500</label>
+                     (click)="priceFilter(1000,2000)">
+              <label class="custom-control-label" for="customRadio1">&nbsp;&nbsp;₹1,000 - ₹2,000</label>
             </div>
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="customRadio2" name="example1"
-                     (click)="priceFilter(1500,2000)">
-              <label class="custom-control-label" for="customRadio2">&nbsp;&nbsp;₹1500 - ₹2,000</label>
+                     (click)="priceFilter(2000,3000)">
+              <label class="custom-control-label" for="customRadio2">&nbsp;&nbsp;₹2,000 - ₹3,000</label>
             </div>
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="customRadio3" name="example1"
-                     (click)="priceFilter(2000,10000)">
-              <label class="custom-control-label" for="customRadio3">&nbsp;&nbsp;₹2000 - ₹10,000</label>
+                     (click)="priceFilter(3000,10000)">
+              <label class="custom-control-label" for="customRadio3">&nbsp;&nbsp;₹3,000 - ₹10,000</label>
             </div>
           </div>
         </div>
       </div>
       <div class="col-10">
 
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
           <div *ngFor="let i of products" class="card-deck">
-            <div class="card mx-4 shadow-lg mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+            <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
 
               <div class="card-body">
                 <a><img src="{{i.image}}"></a>
@@ -47,8 +61,8 @@
                 <div class="text-width">
                   {{i.details}}
                 </div>
-                <div class="d-flex align-items-center">
-                 <b>Rs.{{i.price-0.20*i.price}}</b><small>
+                <div class="d-flex justify-content-center">
+                  <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
                   <del>{{i.price}}</del>
                 </small>
                 </div>
