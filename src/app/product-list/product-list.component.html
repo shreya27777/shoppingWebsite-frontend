@@ -1,15 +1,16 @@
 <app-navbar></app-navbar>
-<nav class="navbar navbar-expand-lg bg-danger justify-content-center navbar-dark p-0 mb-5">
+<nav class="navbar navbar-expand-lg  justify-content-center navbar-dark p-0 mb-5">
   <div class="py-2 px-5 category-style">
-    <h4><a routerLink="/home" class="text-white text-decoration-none">Home</a></h4>
+    <h4><a routerLink="/home" class="text-dark text-decoration-none">Home</a></h4>
   </div>
   <div *ngFor="let i of categories" class="py-2 px-5 category-style my-cursor">
     <div>
-      <h4><a (click)="show(i.name)"  class="text-white text-decoration-none">
+      <h4><a (click)="show(i.name)"  class="text-dark text-decoration-none">
         {{i.name}}</a></h4>
     </div>
   </div>
 </nav>
+
 
 
 

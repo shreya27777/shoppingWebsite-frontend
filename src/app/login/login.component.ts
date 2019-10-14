@@ -37,12 +37,8 @@ export class LoginComponent implements OnInit {
     }
     this.authService.authenticate(this.username, this.password).subscribe(
       (data) => {
-        if (this.username === 'admin' && this.password === 'admin'){
-          localStorage.setItem('admin', 'true');
-        } else {
-          localStorage.setItem('admin', 'false');
-        }
         this.service.isLoggedIn(true);
+        alert('you are logged in');
         this.router.navigate(['home']);
       });
   }

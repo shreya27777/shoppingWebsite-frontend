@@ -12,6 +12,9 @@ import {HttpService} from '../http.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  private search;
+
   public category = [
     {link: '/product-list', name: 'Decor'},
     {link: '/product-list', name: 'Clothing'},
@@ -19,13 +22,16 @@ export class NavbarComponent implements OnInit {
     {link: '/product-list', name: 'Footwear'},
     {link: '/product-list', name: 'Beauty'}
   ];
-  private isAdmin;
+
   constructor(private router: Router, private service: ProductService, private appService: AppService,
               private authService: AuthenticationService, private http: HttpClient, private httpService: HttpService) {
   }
 
   ngOnInit() {
+  }
 
+  startSearch() {
+    localStorage.setItem('search', this.search);
   }
 
 

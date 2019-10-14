@@ -21,12 +21,14 @@ input.empty {
   cursor: pointer;
 }
 
-.category-style:hover {
-  border: 1px dotted lightgrey;
+
+
+a:hover {
+  color:  #ca3e47;
 }
 
 .btn:active {
-  background: #dc3545;
+  background: white;
   border: none;
 }
 
@@ -37,8 +39,8 @@ input.empty {
   cursor: pointer;
 }
 .dropbtn {
-  background-color: #dc3545;
-  color: white;
+  background-color:white;
+  color: black;
   padding: 16px;
   font-size: 20px;
   border: none;
@@ -69,4 +71,4 @@ input.empty {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color:  #dc3545;}
+.dropdown:hover .dropbtn {background-color: white;}

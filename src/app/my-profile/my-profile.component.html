@@ -4,31 +4,27 @@
   <div class="container-fluid">
     <div class="row my-2">
       <div class="col-3" style="border-right: 2px solid lightgrey">
-        <div class="card">
 
-          <table class="table table-hover">
-            <thead>
-            Select :
-            </thead>
+          <table class="table table-hover mt-5 ">
             <tbody>
             <tr>
-              <td (click)="edit()">Edit Profile</td>
+              <td class=" my-cursor" (click)="edit()">Edit Profile</td>
             </tr>
             <tr>
-              <td routerLink="/orders">My Orders</td>
+              <td class=" my-cursor" routerLink="/orders">My Orders</td>
             </tr>
             <tr>
-              <td routerLink="/user-cart">Cart Details</td>
+              <td class=" my-cursor" routerLink="/user-cart">Cart Details</td>
             </tr>
             </tbody>
           </table>
-        </div>
+
       </div>
       <div class="col-9">
         <div class="d-flex justify-content-center mt-5">
           <div class="p-3 border pl-5 pr-5">
             <form class="text-center">
-              <h3 class=" text-center mb-4">Profile Details</h3>
+              <h2 class=" text-center mb-4 mt-4 ">Profile Details</h2>
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -58,7 +54,9 @@
                 </div>
               </div>
             </form>
-            <button *ngIf="editable" (click)="update()" class="btn btn-primary">Save</button>
+            <div class="d-flex justify-content-center mt-5">
+            <button *ngIf="editable" (click)="update()" class="btn btn-danger w-50">Save</button>
+          </div>
           </div>
         </div>
       </div>

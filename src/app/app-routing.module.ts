@@ -12,6 +12,8 @@ import {MyProfileComponent} from './my-profile/my-profile.component';
 import {OrdersComponent} from './orders/orders.component';
 import {AddProductComponent} from './add-product/add-product.component';
 import {EditProductComponent} from './edit-product/edit-product.component';
+import {UsersComponent} from './users/users.component';
+import {SearchComponent} from './search/search.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path: 'profile', component: MyProfileComponent},
   {path: 'add-product', component: AddProductComponent},
   {path: 'edit-product/:product-id', component: EditProductComponent},
+  {path: 'list-of-user', component: UsersComponent},
+  {path: 'search', component: SearchComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -38,5 +42,5 @@ export class AppRoutingModule {
 }
 
 export const RoutingComponents = [HomePageComponent, LoginComponent, SignupComponent, ProductDetailsComponent, AboutUsComponent,
-  PageNotFoundComponent, UserCartComponent, ProductListComponent, MyProfileComponent , OrdersComponent , AddProductComponent,
-  EditProductComponent];
+  PageNotFoundComponent, UserCartComponent, ProductListComponent, MyProfileComponent, OrdersComponent, AddProductComponent,
+  EditProductComponent, UsersComponent, SearchComponent];

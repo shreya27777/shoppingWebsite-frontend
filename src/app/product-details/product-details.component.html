@@ -35,13 +35,13 @@
               Try & Buy might be available</div>
             </div>
           </div>
-          <div *ngIf="appService.isAdmin()" class="d-flex justify-content-around">
-            <button type="button" class="btn btn-success " (click)="editProduct(item.productId)">EDIT PRODUCT</button>
-            <button type="button" class="btn btn-danger " (click)="deleteProduct(item.productId)">DELETE PRODUCT</button>
+          <div *ngIf="appService.checkAdmin()" class="d-flex justify-content-around mt-5">
+            <button type="button" class="btn btn-dark " (click)="editProduct(item.productId)">EDIT PRODUCT</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduct(item.productId)">DELETE PRODUCT</button>
           </div>
-          <div *ngIf="!appService.isAdmin()" class="d-flex justify-content-around mt-5">
+          <div *ngIf="!appService.checkAdmin()" class="d-flex justify-content-around mt-5">
             <button type="button" class="btn btn-dark w-25" routerLink="/product-list/:category ">BACK</button>
-            <button type="button" class="btn btn-success w-50" (click)="addToCart(item.productId)">ADD TO CART</button>
+            <button type="button" class="btn btn-danger w-50" (click)="addToCart(item.productId)">ADD TO CART</button>
           </div>
         </div>
 
