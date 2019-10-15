@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-center pt-4">
+  <h1 class="helo">List of users</h1>
+</div>
+<div class="container">
+  <table class="table table-hover text-center mt-4">
+    <thead>
+    <tr>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>ACTIVE</th>
+      <th>ROLE</th>
+      <th>ACTIONS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let i of users">
+      <td>{{i.name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.active}}</td>
+      <td>{{i.role}}</td>
+      <td *ngIf="i.active === 1 else activate">
+        <button class=" btn btn-danger " (click)="toggleActivate(i.userId)">Deactivate</button>
+      </td>
+      <ng-template #activate>
+        <td>
+          <button class=" btn btn-danger " (click)="toggleActivate(i.userId)">Activate</button>
+        </td>
+      </ng-template>
+    </tr>
+    </tbody>
+  </table>
+</div>

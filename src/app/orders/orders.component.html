@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div>
+  <h2 class="display-3 text-center m-0 ">My Orders{{orders.userName}}</h2>
+</div>
+<div *ngFor="let order of orders">
+<div class="card">
+
+  <div class="card-body">
+    <div>
+      <span>{{order.userName}}</span>
+      <span class="mr-5"><b>Date:</b></span> {{order.date|date:'medium'}}
+    </div>
+    <div>
+      <span class="mr-5"><b>Brand:</b></span>{{order.itemName}}
+    </div>
+    <div>
+      <span class="mr-5"><b>Price:</b></span>  {{order.price}}
+    </div>
+    <div>
+      <span class="mr-3"><b>Quantity:</b></span>  {{order.quantity}}
+    </div>
+    <div>
+      <span class="mr-1"><b>Total Price:</b></span>  {{order.price*order.quantity}}
+    </div>
+  </div>
+</div>
+</div>
+
