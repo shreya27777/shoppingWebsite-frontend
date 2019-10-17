@@ -19,7 +19,6 @@ export class OrdersComponent implements OnInit {
     }
     this.service.getOrder().subscribe((data) => {
       this.orders = data;
-      console.log(this.orders[0].userName);
     });
   }
 }

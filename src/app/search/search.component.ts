@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,8 +11,15 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   private keyword;
   private result;
-
-  constructor(private httpService: HttpService) {
+  public categories = [
+    {link: '/product-list', name: 'Decor'},
+    {link: '/product-list', name: 'Clothing'},
+    {link: '/product-list', name: 'Electronics'},
+    {link: '/product-list', name: 'Footwear'},
+    {link: '/product-list', name: 'Beauty'}
+  ];
+  private category: any;
+  constructor(private httpService: HttpService, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,6 +43,18 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   isEmpty() {
     return this.result.length === 0;
+  }
+
+  show(category) {
+    this.category = category;
+    // this.getItems();
+    this.router.navigate(['/product-list', category.toLowerCase()]);
+  }
+
+  getDetails(productId) {
+    this.router.navigate([]).then((result) => {
+      window.open('http://localhost:4200/product-details/' + productId, '_blank');
+    });
   }
 }
 

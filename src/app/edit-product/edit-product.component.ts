@@ -23,7 +23,6 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      // tslint:disable-next-line:radix
       this.id = params.get('product-id');
     });
     this.httpService.getItemById(this.id).subscribe((data) => {

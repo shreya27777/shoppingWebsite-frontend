@@ -25,7 +25,7 @@ export class AppService {
   }
 
   checkAdmin() {
-    const  admin = localStorage.getItem('admin');
+    const admin = localStorage.getItem('admin');
     return JSON.parse(admin);
   }
 }

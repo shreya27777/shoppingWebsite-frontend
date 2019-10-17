@@ -1,55 +1,65 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
 
-  <div *ngIf="cartItem.length==0" class="d-flex justify-content-center">
+  <div *ngIf="cartItem.length===0" class="d-flex justify-content-center">
     <img src="https://www.flaticon.com/premium-icon/icons/svg/1049/1049946.svg" class="size mt-5">
     <div class="text-muted">
       <div class="font">
         Aww dont Cry Your Cart Is Empty.
-        </div>
+      </div>
     </div>
   </div>
 
   <div class="row my-2" *ngIf="cartItem.length!=0">
 
     <div class="col-9 ">
-      <div id="cartsize" *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
+      <div id="cartsize" *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey "
+      >
         <div id="cart" class="container-fluid p-5">
           <div class="bg-dark">
             <div class="row bg-white alert alert-dark alert-dismissible fade show ">
               <button type="button" (click)="removeFromCart(i.items.productId)" class="close" data-dismiss="alert">
                 &times;
               </button>
-              <img src="{{i.items.image}}" class="img-fluid img-size"/>
+              <img src="{{i.items.image}}" class="img-fluid img-size my-cursor"
+                   (click)="getDetails(i.items.productId)"/>
               <div class="col-sm-9 p-3 border">
                 <h3
-                  class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center">{{ i.items.name }}</h3>
-                <h4 class="display-5 mt-3 d-flex justify-content-around">
-                  <span class="h5 ">Price  :</span>
-                  <span class="text-dark "> &#8377; {{i.items.price }}</span>
+                  class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center my-cursor"
+                  (click)="getDetails(i.items.productId)">
+                  {{ i.items.name | lowercase}} </h3>
+                <h4
+                  class="display-5 heading-border pb-2  d-flex justify-content-center">
+                  {{ i.items.details}}</h4>
+                <h4 class="display-5 mt-3 d-flex justify-content-between">
+                  <span class="h5  ml-5">Price  :</span>
+                  <span class="text-dark  mr-5"> &#8377; {{i.items.price }}</span>
                 </h4>
-                <div class="d-flex mt-3">
+                <div class="display-5 mt-3 d-flex justify-content-between">
                   <h4 class="display-5 ">
                     <span class="h5 ml-5">Quantity  &nbsp;&nbsp;&nbsp;&nbsp;:</span>
                   </h4>
-                  <button type="button" class="btn btn-success ml-4" (click)="decrement(i.items.productId)"
-                          [disabled]="i.quantity==1">-
-                  </button>
-                  <div class="border p-2 pl-4 pr-4">{{i.quantity }}</div>
-                  <button type="button" class="btn btn-success" (click)="increment(i.items.productId)">
-                    +
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-success ml-4" (click)="decrement(i.items.productId)"
+                            [disabled]="i.quantity===1">-
+                    </button>
+                    <div class="border p-2 pl-4 pr-4">{{i.quantity }}</div>
+                    <button type="button" class="btn btn-success" (click)="increment(i.items.productId)">
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <h4 class="display-5 mt-3 d-flex justify-content-between">
+                  <span class="h5  ml-5">Total Amount : </span>
+                  <span class="text-dark  mr-5"> &#8377; {{i.quantity * i.items.price}}</span>
+                </h4>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-danger ml-5"
+                          (click)="removeFromCart(i.items.productId)">Remove From Cart
                   </button>
                 </div>
-                <h4 class="display-5 mt-3">
-                  <span class="h5 ml-5">Total Amount : </span>
-                  <span class="text-dark ml-4"> &#8377; {{i.quantity * i.items.price}}</span>
-                </h4>
               </div>
-              <!--              <div  class="btn-">-->
-              <button class="btn btn-danger ml-5 d-flex justify-content-center"
-                      (click)="removeFromCart(i.items.productId)">Remove From Cart
-              </button>
-              <!--              </div>-->
             </div>
           </div>
         </div>

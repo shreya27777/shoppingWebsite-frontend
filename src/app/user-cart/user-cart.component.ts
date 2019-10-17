@@ -28,7 +28,6 @@ export class UserCartComponent implements OnInit {
         });
       });
     }
-
   }
 
   decrement(id) {
@@ -51,10 +50,6 @@ export class UserCartComponent implements OnInit {
 
   checkOut() {
     this.httpService.checkOut().subscribe((data) => {
-      this.cartItem = data;
-      this.httpService.total().subscribe((total) => {
-        this.totalPrice = total;
-      });
       this.router.navigate(['/orders']);
     });
   }
@@ -68,4 +63,10 @@ export class UserCartComponent implements OnInit {
       });
     });
   }
+  getDetails(productId) {
+    this.router.navigate([]).then((result) => {
+      window.open('http://localhost:4200/product-details/' + productId, '_blank');
+    });
+  }
+
 }
