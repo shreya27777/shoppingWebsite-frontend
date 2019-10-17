@@ -11,7 +11,7 @@ import {HttpService} from '../http.service';
 export class UserCartComponent implements OnInit {
   totalPrice;
   // tslint:disable-next-line:ban-types
-  private cartItem: Object = [];
+  private cartItem: any = [];
 
 
   constructor(private service: AppService, private router: Router, private httpService: HttpService) {

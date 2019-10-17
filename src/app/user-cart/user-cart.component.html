@@ -1,15 +1,29 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-  <div class="row my-2">
-    <div  class="col-9 ">
-      <div id="cartsize"*ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
-        <div id = "cart" class="container-fluid p-5">
+
+  <div *ngIf="cartItem.length==0" class="d-flex justify-content-center">
+    <img src="https://www.flaticon.com/premium-icon/icons/svg/1049/1049946.svg" class="size mt-5">
+    <div class="text-muted">
+      <div class="font">
+        Aww dont Cry Your Cart Is Empty.
+        </div>
+    </div>
+  </div>
+
+  <div class="row my-2" *ngIf="cartItem.length!=0">
+
+    <div class="col-9 ">
+      <div id="cartsize" *ngFor="let i of cartItem" style="border-right: 2px solid lightgrey ">
+        <div id="cart" class="container-fluid p-5">
           <div class="bg-dark">
             <div class="row bg-white alert alert-dark alert-dismissible fade show ">
-              <button type="button" (click)="removeFromCart(i.items.productId)" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" (click)="removeFromCart(i.items.productId)" class="close" data-dismiss="alert">
+                &times;
+              </button>
               <img src="{{i.items.image}}" class="img-fluid img-size"/>
               <div class="col-sm-9 p-3 border">
-                <h3 class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center">{{ i.items.name }}</h3>
+                <h3
+                  class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center">{{ i.items.name }}</h3>
                 <h4 class="display-5 mt-3 d-flex justify-content-around">
                   <span class="h5 ">Price  :</span>
                   <span class="text-dark "> &#8377; {{i.items.price }}</span>
@@ -31,9 +45,11 @@
                   <span class="text-dark ml-4"> &#8377; {{i.quantity * i.items.price}}</span>
                 </h4>
               </div>
-<!--              <div  class="btn-">-->
-              <button class="btn btn-danger ml-5 d-flex justify-content-center" (click)="removeFromCart(i.items.productId)">Remove From Cart</button>
-<!--              </div>-->
+              <!--              <div  class="btn-">-->
+              <button class="btn btn-danger ml-5 d-flex justify-content-center"
+                      (click)="removeFromCart(i.items.productId)">Remove From Cart
+              </button>
+              <!--              </div>-->
             </div>
           </div>
         </div>
@@ -48,8 +64,8 @@
         <div class="card-body">
           <div class="d-flex justify-content-between"><h5>Total Tax:</h5><h5> Rs.80</h5></div>
           <div class="d-flex justify-content-between"><h5>Sale Discount :</h5><h5> Rs.100</h5></div>
-            <div class="d-flex justify-content-between"><h5>Delivery Charges :</h5><h5>Rs.60</h5></div>
-              <div class="d-flex justify-content-between"><h5>Total :</h5><h5>{{totalPrice +40}}</h5></div>
+          <div class="d-flex justify-content-between"><h5>Delivery Charges :</h5><h5>Rs.60</h5></div>
+          <div class="d-flex justify-content-between"><h5>Total :</h5><h5>{{totalPrice + 40}}</h5></div>
         </div>
         <button
           type="button"
@@ -59,8 +75,10 @@
     </div>
   </div>
 </div>
-<b><hr></b>
-<div>
+<div *ngIf="cartItem.length!=0">
+  <b>
+    <hr>
+  </b>
   <img src="./assets/ss1.png">
 </div>
 

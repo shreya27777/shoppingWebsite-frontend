@@ -8,7 +8,6 @@ export class HttpService {
   public category: string;
   eventEmitter: EventEmitter<string>;
   searchEmitter: EventEmitter<string>;
-  private search: string;
 
   constructor(private http: HttpClient) {
     this.eventEmitter = new EventEmitter<string>();
@@ -20,8 +19,7 @@ export class HttpService {
     this.eventEmitter.emit(category);
   }
 
-  raiseSearch(search: string) {
-    this.search = search;
+  raiseSearch(search) {
     this.searchEmitter.emit(search);
   }
 

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {HttpService} from '../http.service';
 import {AppService} from '../app.service';
-import {split} from 'ts-node';
 
 @Component({
   selector: 'app-product-details',
@@ -22,7 +21,6 @@ export class ProductDetailsComponent implements OnInit {
     });
     this.httpService.getItemById(this.id).subscribe((data) => {
       this.item = data;
-      console.log(this.item);
     });
   }
 
@@ -42,7 +40,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   deleteProduct(productId) {
-    this.httpService.deleteProduct(this.id).subscribe((data) => {
+    this.httpService.deleteProduct(productId).subscribe((data) => {
       this.router.navigate(['/home']);
     });
   }

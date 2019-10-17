@@ -1,9 +1,18 @@
 <app-navbar></app-navbar>
-<div *ngFor="let item of result">
-  <div class="card">
-    <div>{{item.name}}</div>
-    <div>{{item.details}}</div>
-    <div>{{item.description}}</div>
-    <div>{{item.price}}</div>
+<div *ngIf="isEmpty(); else elseBlock">
+  <div>
+    <h1 class="font-weight-bold">
+      Sorry no result found for this word, try searching something else.
+    </h1>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div *ngFor="let item of result">
+    <div class="card">
+      <div>{{item.name}}</div>
+      <div>{{item.details}}</div>
+      <div>{{item.description}}</div>
+      <div>{{item.price}}</div>
+    </div>
+  </div>
+</ng-template>

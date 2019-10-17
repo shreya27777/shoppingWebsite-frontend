@@ -5,8 +5,8 @@
   </div>
   <div *ngFor="let i of category" class="py-2 px-5 category-style my-cursor">
     <div>
-      <h4><a (click)="show(i.name)"  class="text-black text-decoration-none">
-        {{i.name}}</a></h4>
+      <h4><a (click)="show(i)"  class="text-black text-decoration-none">
+        {{i}}</a></h4>
     </div>
   </div>
 </nav>
@@ -57,7 +57,7 @@
         </div>
         <div class="d-flex justify-content-center">
           <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
-          <del>{{i.price}}</del>
+          <del>{{i.price}}</del>chi
         </small>
         </div>
 
@@ -66,31 +66,7 @@
   </div>
 </div>
 
-<h2><div class=" d-flex justify-content-center mt-4 mb-3"> Best Of Clothing:</div></h2>
-<div class="d-flex flex-wrap justify-content-center">
-  <div *ngFor="let i of clothingPopular" class="card-deck">
-    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
 
-      <div class="card-body">
-        <a><img src="{{i.image}}"></a>
-      </div>
-      <div class="card-footer text-center ">
-        <div class="helo">
-          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
-        </div>
-        <div class="text-width">
-          {{i.details}}
-        </div>
-        <div class="d-flex justify-content-center">
-          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
-          <del>{{i.price}}</del>
-        </small>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
 
 <h2><div class=" d-flex justify-content-center mt-4 mb-3"> Best Of Home Decor:</div></h2>
 <div class="d-flex flex-wrap justify-content-center">
@@ -121,6 +97,58 @@
 <h2><div class=" d-flex justify-content-center mb-4 mt-3 " > Best Of Beauty:</div></h2>
 <div class="d-flex flex-wrap justify-content-center">
   <div *ngFor="let i of beautyPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><div class=" d-flex justify-content-center mb-4 mt-3 " > Best Of Electronics:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of electronicsPopular" class="card-deck">
+    <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
+
+      <div class="card-body">
+        <a><img src="{{i.image}}"></a>
+      </div>
+      <div class="card-footer text-center ">
+        <div class="helo">
+          <b><a class="text-dark text-decoration-none " >{{i.name}}</a></b>
+        </div>
+        <div class="text-width">
+          {{i.details}}
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="text-success"><b>Rs.{{i.price-0.20*i.price}}</b></span><small>
+          <del>{{i.price}}</del>
+        </small>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><div class=" d-flex justify-content-center mt-4 mb-3"> Best Of Clothing:</div></h2>
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let i of clothingPopular" class="card-deck">
     <div class="card mx-4 mb-5 bg-white rounded my-cursor" (click)="getDetails(i.productId)">
 
       <div class="card-body">

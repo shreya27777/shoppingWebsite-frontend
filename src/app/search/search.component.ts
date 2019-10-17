@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpService} from '../http.service';
-import {setAnalyticsConfig} from '@angular/cli/models/analytics';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
   private keyword;
   private result;
@@ -17,11 +16,26 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.keyword = localStorage.getItem('search');
-    console.log(this.keyword);
-    this.httpService.searchResult(this.keyword).subscribe((data) => {
-      this.result = data;
-      console.log(this.result);
+    if (this.keyword !== undefined) {
+      this.httpService.searchResult(this.keyword).subscribe((data) => {
+        this.result = data;
+      });
+    }
+    this.httpService.searchEmitter.subscribe((keyword) => {
+      this.keyword = keyword;
+      this.httpService.searchResult(this.keyword).subscribe((data) => {
+        this.result = data;
+      });
     });
   }
 
+  ngOnDestroy(): void {
+    localStorage.removeItem('search');
+  }
+
+  isEmpty() {
+    return this.result.length === 0;
+  }
 }
+
+

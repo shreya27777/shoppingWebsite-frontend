@@ -28,10 +28,17 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (localStorage.getItem('search')) {
+      this.search = undefined;
+    } else {
+      this.search = localStorage.getItem('search');
+    }
   }
 
   startSearch() {
     localStorage.setItem('search', this.search);
+    this.httpService.raiseSearch(this.search);
+    this.router.navigate(['/search']);
   }
 
 

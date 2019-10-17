@@ -13,7 +13,7 @@ export class AuthenticationService {
 
   authenticate(username, password) {
     const headers = new HttpHeaders({
-      Authorization: ' Basic ' + btoa(username + ':' + password)
+      Authorization: 'Basic ' + btoa(username + ':' + password)
     });
     return this.http.get('http://localhost:8081/users/login', {headers}).pipe(
       map((data) => {

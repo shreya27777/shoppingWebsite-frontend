@@ -4,7 +4,7 @@
 
   <div class="d-flex justify-content-center mt-5">
     <div class="p-3 border pl-5 pr-5">
-      <form class="text-center">
+      <form>
         <h3 class=" text-center mb-4 helo">Edit Product:</h3>
 
         <div class="form-group">
@@ -13,8 +13,7 @@
               <span class="input-group-text pr-5"
               >name</span>
             </div>
-            <input type="text" class="form-control " [(ngModel)]="name" [value]="profile.name"
-                   [ngModelOptions]="{standalone: true}"/>
+            <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -25,7 +24,7 @@
               >Price </span>
             </div>
             <input type="text" class="form-control " [(ngModel)]="price"
-                   [ngModelOptions]="{standalone: true}"/>
+                   [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -37,7 +36,7 @@
               >Details </span>
             </div>
             <input type="text" class="form-control " [(ngModel)]="details"
-                   [ngModelOptions]="{standalone: true}"/>
+                   [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -50,7 +49,7 @@
             </div>
 
             <input type="text" class="form-control" [(ngModel)]="image"
-                   [ngModelOptions]="{standalone: true}"/>
+                   [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -62,7 +61,7 @@
               >Category</span>
             </div>
             <input type="text" class="form-control" [(ngModel)]="category"
-                   [ngModelOptions]="{standalone: true}"/>
+                   [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -73,7 +72,7 @@
               >Description</span>
             </div>
             <input type="text" class="form-control" [(ngModel)]="description"
-                   [ngModelOptions]="{standalone: true}"/>
+                   [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 

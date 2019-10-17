@@ -1,5 +1,6 @@
 .card{
   transition: box-shadow 0.2s;
+  width: 600px;
 }
 
 .card:hover{
@@ -8,4 +9,7 @@
 .heading{
   border-bottom: 3px solid #ca3e47;
   margin: 0 20rem;
+}
+.helo{
+  border-bottom: 3px solid #ca3e47;
 }

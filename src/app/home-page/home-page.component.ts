@@ -11,17 +11,14 @@ export class HomePageComponent implements OnInit {
 
 
   public category = [
-    {link: '/product-list', name: 'Decor'},
-    {link: '/product-list', name: 'Clothing'},
-    {link: '/product-list', name: 'Electronics'},
-    {link: '/product-list', name: 'Footwear'},
-    {link: '/product-list', name: 'Beauty'}
+    'Decor', 'Clothing', 'Electronics', 'Footwear', 'Beauty'
   ];
 
   private footwearPopular: object = [];
   private clothingPopular: object = [];
   private decorPopular: object = [];
   private beautyPopular: object = [];
+  private electronicsPopular: object = [];
 
   constructor(private httpService: HttpService , private router: Router) {
   }
@@ -39,12 +36,14 @@ export class HomePageComponent implements OnInit {
     this.httpService.getPopular('beauty').subscribe((data2) => {
       this.beautyPopular = data2;
     });
+    this.httpService.getPopular('electronics').subscribe((data2) => {
+      this.electronicsPopular = data2;
+    });
   }
 
   show(category) {
     this.category = category.toLowerCase();
-    this.httpService.raiseCategory(category.toLowerCase());
-    this.router.navigate(['/product-list', category.toLowerCase()]);
+    this.router.navigate(['/product-list', this.category]);
   }
 
   getDetails(id) {
