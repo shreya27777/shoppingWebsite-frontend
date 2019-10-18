@@ -5,7 +5,7 @@
     <img src="https://www.flaticon.com/premium-icon/icons/svg/1049/1049946.svg" class="size mt-5">
     <div class="text-muted">
       <div class="font">
-        Aww dont Cry Your Cart Is Empty.
+        Seems like you havent added something yet.<br><h3 class="text-center">Add some products now!!!</h3>
       </div>
     </div>
   </div>
@@ -28,9 +28,10 @@
                   class="display-5 heading-border pb-2 font-weight-bold d-flex justify-content-center my-cursor"
                   (click)="getDetails(i.items.productId)">
                   {{ i.items.name | lowercase}} </h3>
-                <h4
-                  class="display-5 heading-border pb-2  d-flex justify-content-center">
-                  {{ i.items.details}}</h4>
+
+                  <div class=" helo-border  d-flex justify-content-center ">
+                <h4>{{ i.items.details}}</h4>
+              </div>
                 <h4 class="display-5 mt-3 d-flex justify-content-between">
                   <span class="h5  ml-5">Price  :</span>
                   <span class="text-dark  mr-5"> &#8377; {{i.items.price }}</span>
